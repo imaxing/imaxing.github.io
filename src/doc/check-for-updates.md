@@ -12,7 +12,9 @@
 
 
 #### 解决步骤
+
 - 创建version.json文件到项目中
+
 ```javascript
 
 // 新建 version-number-injection.js
@@ -20,7 +22,7 @@ const fs = require('fs')
 class VersionNumberInjectionPlugin {
   constructor(props) {
     this.props = props
-  }
+  }œœ
 
   apply(compiler) {
     // name, 是为了区分不同项目定制的key
@@ -77,9 +79,8 @@ module.exports = {
 
 
 - 客户端加入检测代码
+
 ```javascript
-
-
 
 const nativeGet = url => {
   return new Promise(resolve => {
@@ -129,16 +130,18 @@ emitter.on('updates-check', async () => {
   reload()
   window.location.reload()
 })
-
-
 ```
 
 
 #### 效果图
 
 **本地版本号**
+
 ![https://tva1.sinaimg.cn/large/008i3skNgy1gysd46w9vpj31ux0u0adm.jpg](本地版本号)
+
 **服务端版本号**
+
 ![https://tva1.sinaimg.cn/large/008i3skNgy1gysd6e3bqdj327c0u0q6s.jpg](服务端版本号)
+
 
 
