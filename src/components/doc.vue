@@ -32,6 +32,7 @@ export default {
   display: block;
   cursor: pointer;
 }
+
 .content-date {
   font-size: 12px;
   color: #999;
@@ -60,5 +61,12 @@ export default {
   top: 16px;
   cursor: pointer;
   color: #fff;
+}
+
+@media (max-width: 767px) {
+  .doc-item img {
+    width: 100%;
+    max-width: none;
+  }
 }
 </style>
