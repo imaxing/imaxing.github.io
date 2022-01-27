@@ -95,6 +95,7 @@ export default {
   #app {
     max-width: none;
     margin: 0 auto;
+    padding: 0px;
   }
 }
 </style>
