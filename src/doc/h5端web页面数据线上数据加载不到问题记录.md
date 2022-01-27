@@ -1,11 +1,5 @@
----
-title: h5端web页面数据线上数据加载不到问题记录
-date: 2021-05-25 17:05:58
-categories:
-  - bridge
-tags:
-  - js
----
+<h2 class="content-title">h5端web页面数据线上数据加载不到问题记录</h2>
+<small class="content-date">2021-05-25 17:05:58</small>
 
 ![](https://tva1.sinaimg.cn/large/008i3skNly1gqusdlc6f8j313q0oadza.jpg)
 

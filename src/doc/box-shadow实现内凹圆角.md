@@ -1,11 +1,6 @@
----
-title: box-shadow实现内凹圆角
-date: 2020-02-24 22:10:44
-tags:
- - css, box-shadow
-categories:
- - css
----
+<h2 class="content-title">box-shadow实现内凹圆角</h2>
+<small class="content-date">2020-02-24 22:10:44</small>
+
 
 #### 前言
 接到需求是做一个优惠券的功能, 优惠券的卡片涉及到了内凹圆角的效果, 通过 box-shadow 实现一波, 实现后的效果图是这样滴

@@ -1,17 +1,6 @@
----
-title: vue组件库共存开发导致编译错误的解决过程
-date: 2020-04-14 18:46:31
-categories: 
-  - vue
-  - element-ui
-  - ant-design-vue
-tags: 
-  - vue
-  - element-ui
-  - ant-design-vue
-  - $attr is readonly
-  - $listeners is readonly
----
+<h2 class="content-title">vue组件库共存开发导致编译错误的解决过程</h2>
+<small class="content-date">2022-01-27 13:22:22</small>
+
 
 ![ant-design-vue](https://vuejsexamples.com/content/images/2016/08/20160827214833.jpg)
 

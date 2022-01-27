@@ -1,9 +1,6 @@
----
-title: 解决momentjs使用webpack打包文件过大的问题
-date: 2020-03-06 18:28:36
-tags: 
- - webpack
----
+
+<h2 class="content-title">解决momentjs使用webpack打包文件过大的问题</h2>
+<small class="content-date">2020-03-06 18:28:36</small>
 
 
 ```javascript

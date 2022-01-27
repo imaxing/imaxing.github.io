@@ -1,11 +1,7 @@
----
-title: webpack4 完整配置文件记录
-date: 2020-02-24 17:51:12
-categories: 
- - webpack
-tags:
- - webpack
----
+<h2 class="content-title">webpack4 完整配置文件记录</h2>
+<small class="content-date">2020-02-24 17:51:12</small>
+
+
 ![](https://tva1.sinaimg.cn/large/0082zybpgy1gc7x6c11qrj31o00u0b2a.jpg)
 #### 此配置涵盖了目前 webpack4 的大部分配置, 方便查询, 配置来源 [深入浅出 webpack](https://webpack.wuhaolin.cn/2%E9%85%8D%E7%BD%AE/2-8%E6%95%B4%E4%BD%93%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84.html)
 <!-- more -->

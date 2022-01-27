@@ -1,12 +1,5 @@
----
-layout: javascript
-title: javascript 中的执行上下文
-date: 2018-02-24 21:50:22
-categories:
- - javascript
-tags:
- - javascript
----
+<h2 class="content-title">javascript 中的执行上下文</h2>
+<small class="content-date">2018-02-24 21:50:22</small>
 
 
 #### 起步

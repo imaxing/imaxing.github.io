@@ -1,12 +1,6 @@
----
-title: 关于 JavaScript 中 this 的理解
-date: 2018-02-24 21:30:26
-categories:
- - javascript
-tags:
- - javascript
- - this
----
+
+<h2 class="content-title">关于 JavaScript 中 this 的理解</h2>
+<small class="content-date">2018-02-24 21:30:26</small>
 
 
 #### 起步

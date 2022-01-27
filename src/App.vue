@@ -1,53 +1,19 @@
 <template>
-  <div id="app">
-    <input
-      type="text"
-      class="filter-input"
-      v-model.trim="value"
-      @keyup.enter="getCurrentDoc"
-      placeholder="关键词过滤"
+  <div id="app" class="markdown-body">
+    <doc
+      v-for="doc in results.length > 0 ? results : docs"
+      :key="doc.name"
+      :doc="doc"
     />
-    <div class="docs">
-      <div
-        class="markdown-body doc-item"
-        v-for="doc in results.length > 0 ? results : docs"
-        :key="doc.name"
-        v-html="doc.content"
-      >
-        {{ doc.name }}
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-function copyText(content) {
-  if (!content) return;
-
-  let eleTextarea = document.querySelector("#tempTextarea");
-  if (!eleTextarea && !navigator.clipboard) {
-    eleTextarea = document.createElement("textarea");
-    eleTextarea.style.width = 0;
-    eleTextarea.style.position = "fixed";
-    eleTextarea.style.left = "-999px";
-    eleTextarea.style.top = "10px";
-    document.body.appendChild(eleTextarea);
-  }
-
-  const funCopy = function (text) {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text);
-    } else {
-      eleTextarea.value = text;
-      eleTextarea.select();
-      document.execCommand("copy", true);
-    }
-  };
-
-  funCopy(content);
-}
+import { copyText } from "@iamgx/purvar-utils";
+import Doc from "@/components/doc";
 export default {
   name: "App",
+  components: { Doc },
   data: () => ({ results: [], value: "", docs: [] }),
   mounted() {
     const docs = require.context("@/doc", true, /\.md$/);
@@ -82,15 +48,7 @@ export default {
     },
     getCurrentDoc() {
       this.results = this.value
-        ? this.docs
-            .filter((md) => md.content.includes(this.value))
-            .map((item) => ({
-              name: item.name,
-              content: item.content.replace(
-                new RegExp(this.value, "g"),
-                `<span class="keyword">${this.value}</span>`
-              ),
-            }))
+        ? this.docs.filter((md) => md.content.includes(this.value))
         : [];
       this.$nextTick(this.initCopyFeat);
     },
@@ -102,74 +60,17 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0 auto;
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+  margin: 20px auto;
+  max-width: 1000px;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
 }
 
-.filter-input {
-  width: 100%;
-  height: 40px;
-  outline: none;
-  border: none;
-  color: #fff;
-  background: transparent;
-  padding: 0 20%;
-  margin: 0 auto;
-}
-.docs {
-  height: calc(100vh - 40px);
-  overflow-y: auto;
-  padding: 20px 20% 80px;
-  margin: 0 auto;
-}
-
-.doc-item pre {
-  position: relative;
-}
-.doc-item .keyword {
-  background: yellow;
-  color: #333;
-  font-size: 12px;
-  padding: 4px;
-  font-weight: bold;
-  font-style: italic;
-}
-.doc-item pre .copy {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  cursor: pointer;
-}
-.doc-item:not(:last-of-type) {
-  margin: 0px auto 80px;
-  position: relative;
-}
-
-.doc-item:not(:last-of-type)::after {
-  position: absolute;
-  left: 0;
-  bottom: -60px;
-  content: "此文结束";
-  text-align: center;
-  width: 100%;
-  height: 20px;
-  color: #f40;
-}
 @media (max-width: 767px) {
   #app {
-    width: 100%;
-  }
-  .markdown-body {
-    padding: 15px;
-  }
-  .docs {
-    padding: 0;
-  }
-  .filter-input {
-    text-indent: 15px;
-    padding: 0;
+    max-width: none;
+    margin: 0 auto;
   }
 }
 </style>
