@@ -31,6 +31,7 @@ export default {
   max-width: 50%;
   display: block;
   cursor: pointer;
+  margin: 10px 0 10px 0;
 }
 
 .content-date {

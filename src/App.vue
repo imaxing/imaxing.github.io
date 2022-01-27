@@ -85,8 +85,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 20px auto;
-  max-width: 1000px;
-  background: #fff;
+  max-width: 1200px;
+  background: url("~@/bg.png") repeat #fff;
   padding: 30px;
   box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
 }
