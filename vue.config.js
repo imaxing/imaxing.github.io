@@ -4,9 +4,9 @@ class MoveIndexHtml {
   apply(compiler) {
     compiler.hooks.done.tap("MoveIndexHtml", () => {
       run(
-        `mv ${path.resolve(__dirname, "./")} ${path.resolve(
+        `mv ${path.resolve(__dirname, "dist/index.html")} ${path.resolve(
           __dirname,
-          "dist/index.html"
+          "./"
         )}`
       );
     });
