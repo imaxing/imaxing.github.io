@@ -137,11 +137,11 @@ emitter.on('updates-check', async () => {
 
 **本地版本号**
 
-![https://tva1.sinaimg.cn/large/008i3skNgy1gysd46w9vpj31ux0u0adm.jpg](本地版本号)
+![本地版本号](https://tva1.sinaimg.cn/large/008i3skNgy1gysd46w9vpj31ux0u0adm.jpg)
 
 **服务端版本号**
 
-![https://tva1.sinaimg.cn/large/008i3skNgy1gysd6e3bqdj327c0u0q6s.jpg](服务端版本号)
+![服务端版本号](https://tva1.sinaimg.cn/large/008i3skNgy1gysd6e3bqdj327c0u0q6s.jpg)
 
 
 
