@@ -1,5 +1,3 @@
-<h2 class="content-title">javascript中的数据传递</h2>
-<small class="content-date">2018-02-24 22:01:46</small>
 
 
 #### javascript 的数据传递

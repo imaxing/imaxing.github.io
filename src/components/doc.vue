@@ -1,5 +1,9 @@
 <template>
   <div class="doc-item">
+    <div>
+      <h2 :id="doc.path">{{ doc.title }}</h2>
+      <small>{{ doc.date }}</small>
+    </div>
     <div v-html="doc.content" />
   </div>
 </template>
@@ -14,7 +18,6 @@ export default {
 .doc-item {
   padding: 15px;
   position: relative;
-  color: #333;
   height: auto;
 }
 .doc-item:not(:first-of-type)::after {
@@ -28,10 +31,10 @@ export default {
   content: "";
 }
 .doc-item img {
-  max-width: 50%;
+  max-width: 80%;
   display: block;
   cursor: pointer;
-  margin: 10px 0 10px 0;
+  margin: 20px auto 0;
 }
 
 .content-date {

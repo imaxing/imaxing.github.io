@@ -1,5 +1,3 @@
-<h2 class="content-title">改变 Mac Launchpad 图标的大小</h2>
-<small class="content-date">2020-02-24 22:06:41</small>
 
 
 ![](https://tva1.sinaimg.cn/large/0082zybpgy1gc7x4f98dej31hc0u0ah1.jpg)

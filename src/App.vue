@@ -1,55 +1,41 @@
 <template>
-  <div id="app" class="markdown-body">
-    <doc
-      v-for="doc in results.length > 0 ? results : docs"
-      :key="doc.name"
-      :doc="doc"
-    />
+  <div id="app">
+    <div class="sidebar">
+      <a v-for="(doc, index) in docs" :key="index" :href="'#' + doc.path">{{
+        doc.title
+      }}</a>
+    </div>
+    <div class="main markdown-body">
+      <doc
+        v-for="(doc, index) in results.length > 0 ? results : docs"
+        :key="index"
+        :doc="doc"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-function copyText(content) {
-  if (!content) return;
-
-  let eleTextarea = document.querySelector("#tempTextarea");
-  if (!eleTextarea && !navigator.clipboard) {
-    eleTextarea = document.createElement("textarea");
-    eleTextarea.style.width = 0;
-    eleTextarea.style.position = "fixed";
-    eleTextarea.style.left = "-999px";
-    eleTextarea.style.top = "10px";
-    document.body.appendChild(eleTextarea);
-  }
-
-  const funCopy = function (text) {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text);
-    } else {
-      eleTextarea.value = text;
-      eleTextarea.select();
-      document.execCommand("copy", true);
-    }
-  };
-
-  funCopy(content);
-}
+import { copyText } from "@/utils";
+import docList from "@/data";
 import Doc from "@/components/doc";
+
 export default {
   name: "App",
   components: { Doc },
   data: () => ({ results: [], value: "", docs: [] }),
   mounted() {
-    const docs = require.context("@/doc", true, /\.md$/);
-    const mds = docs.keys().map((key) => ({
-      name: key.replace(/(\.\/|\.md)/g, ""),
-      content: docs(key).replace(
+    const docs = require.context("@/doc", true);
+    this.docs = docList.map((doc) => ({
+      ...doc,
+      content: docs(`./${doc.path}.md`).replace(
         /<pre>/g,
         `<pre><span class="copy">复制</span>`
       ),
     }));
-    this.docs = mds;
-
+    this.docs.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
     this.$nextTick(this.initCopyFeat);
   },
   methods: {
@@ -84,18 +70,48 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 20px auto;
-  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  padding: 10px;
+  transform: translateX(0px);
+  color: #000;
+  transition: all linear 0.3s;
   background: url("~@/bg.png") repeat #fff;
-  padding: 30px;
-  box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+  position: fixed;
+}
+.sidebar a {
+  color: #333;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+.main {
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  overflow-y: auto;
+  transition: all linear 0.3s;
+  padding: 15px;
 }
 
 @media (max-width: 767px) {
-  #app {
-    max-width: none;
-    margin: 0 auto;
-    padding: 0px;
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .main {
+    width: 100%;
+    padding: 0;
+    margin-left: 0px;
   }
 }
 </style>

@@ -1,5 +1,3 @@
-<h2 class="content-title">记录一次线上 bug</h2>
-<small class="content-date">2020-11-01 18:46:00</small>
 
 
  上线后的项目出现了 el-upload 组件上传没反应的问题, 浏览了一遍代码, 在开发环境也没有任何问题(这就很程序了)

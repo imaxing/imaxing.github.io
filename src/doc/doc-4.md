@@ -1,6 +1,4 @@
 
-<h2 class="content-title">前端页面生成水印代码</h2>
-<small class="content-date">2020-06-18 17:02:18</small>
 
 
 **先上完整代码**

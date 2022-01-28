@@ -1,5 +1,3 @@
-<h2 class="content-title">解决npm安装node-sass依赖过慢的问题</h2>
-<small class="content-date">2020-03-06 18:33:04</small>
 
 
 **这种一般是 npm 从国外下载比较慢, 更新成国内的就可以了**

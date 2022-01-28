@@ -1,5 +1,3 @@
-<h2 class="content-title">box-shadow实现内凹圆角</h2>
-<small class="content-date">2020-02-24 22:10:44</small>
 
 
 #### 前言

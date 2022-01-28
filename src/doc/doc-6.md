@@ -1,5 +1,3 @@
-<h2 class="content-title">原生js下载pdf链接文件而不是打开预览的解决方案</h2>
-<small class="content-date">2020-05-26 18:03:13</small>
 
 
 ## 点击 pdf 链接的时候直接下载 pdf 文件到本地, 而非打开新的页面进行预览

@@ -1,8 +1,4 @@
-<h2 class="content-title">vue组件库共存开发导致编译错误的解决过程</h2>
-<small class="content-date">2022-01-27 13:22:22</small>
 
-
-![ant-design-vue](https://vuejsexamples.com/content/images/2016/08/20160827214833.jpg)
 
 
 **在 vue 组件库中, elementUI 是一个质量相对很高的组件库了, 组件比较全面也很好用

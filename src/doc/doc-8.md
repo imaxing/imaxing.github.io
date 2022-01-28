@@ -1,5 +1,3 @@
-<h2 class="content-title">项目部署新版本后怎么提示用户刷新浏览器？</h2>
-<small class="content-date">2022-01-27 16:51:35</small>
 
 
 
