@@ -10,6 +10,7 @@
         v-for="(doc, index) in results.length > 0 ? results : docs"
         :key="index"
         :doc="doc"
+        :id="doc.path"
       />
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
-  <div class="doc-item">
+  <div class="doc-item" v-bind="$attrs">
     <div>
-      <h2 class="content-title" :id="doc.path">{{ doc.title }}</h2>
+      <h2 class="content-title">{{ doc.title }}</h2>
       <small class="content-date">{{ doc.date }}</small>
     </div>
     <component :is="require(`@/doc/${doc.path}.vue`).default" v-if="doc.type === 'component'" />
