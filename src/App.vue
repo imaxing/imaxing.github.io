@@ -5,7 +5,7 @@
         doc.title
       }}</a>
     </div>
-    <div class="main markdown-body">
+    <div class="main">
       <doc
         v-for="(doc, index) in results.length > 0 ? results : docs"
         :key="index"
@@ -16,51 +16,30 @@
 </template>
 
 <script>
-import { copyText } from "@/utils";
+
 import docList from "@/data";
-import Doc from "@/components/doc";
+import doc from "@/components/doc";
 
 export default {
   name: "App",
-  components: { Doc },
+  components: { doc },
   data: () => ({ results: [], value: "", docs: [] }),
   mounted() {
     const docs = require.context("@/doc", true);
     this.docs = docList.map((doc) => ({
       ...doc,
-      content: docs(`./${doc.path}.md`).replace(
-        /<pre>/g,
-        `<pre><span class="copy">复制</span>`
-      ),
+      content: doc.type !== 'component' && docs(`./${doc.path}.md`),
     }));
     this.docs.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
-    this.$nextTick(this.initCopyFeat);
   },
   methods: {
-    initCopyFeat() {
-      let pre = document.querySelectorAll("pre");
-      for (let i = 0; i < pre.length; i++) {
-        const preItem = pre[i];
-        const copyEl = preItem.querySelector(".copy");
-        const codeEl = preItem.querySelector("code");
-        window.hljs.highlightBlock(preItem.querySelector("code"));
-        copyEl.onclick = () => {
-          copyText(codeEl.innerHTML.replace(/<\/?.+?>/g, ""));
-          copyEl.innerText = "复制成功";
-          const timer = setTimeout(() => {
-            copyEl.innerText = "复制";
-            clearTimeout(timer);
-          }, 2000);
-        };
-      }
-    },
+    
     getCurrentDoc() {
       this.results = this.value
         ? this.docs.filter((md) => md.content.includes(this.value))
         : [];
-      this.$nextTick(this.initCopyFeat);
     },
   },
 };
@@ -75,6 +54,12 @@ export default {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+}
+.mgt10 {
+  margin-top: 10px;
+}
+.mgb10 {
+  margin-bottom: 10px;
 }
 
 .sidebar {
@@ -102,6 +87,7 @@ export default {
   overflow-y: auto;
   transition: all linear 0.3s;
   padding: 15px;
+  color: #222;
 }
 
 @media (max-width: 767px) {

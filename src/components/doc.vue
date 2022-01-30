@@ -1,16 +1,19 @@
 <template>
   <div class="doc-item">
     <div>
-      <h2 :id="doc.path">{{ doc.title }}</h2>
-      <small>{{ doc.date }}</small>
+      <h2 class="content-title" :id="doc.path">{{ doc.title }}</h2>
+      <small class="content-date">{{ doc.date }}</small>
     </div>
-    <div v-html="doc.content" />
+    <component :is="require(`@/doc/${doc.path}.vue`).default" v-if="doc.type === 'component'" />
+    <markdown v-else :content="doc.content" />
   </div>
 </template>
 <script>
+import markdown from '@/components/markdown.vue'
 export default {
   name: "Doc",
   props: ["doc"],
+  components: { markdown }
 };
 </script>
 
@@ -40,6 +43,8 @@ export default {
 .content-date {
   font-size: 12px;
   color: #999;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .doc-item:not(:last-of-type) {
@@ -49,14 +54,18 @@ export default {
   border-bottom: none !important;
 }
 .content-title {
-  color: #444;
-  font-size: 18px !important;
+  font-size: 18px;
   position: relative;
   transition: 0.3s ease all;
+  margin-bottom: 10px;
 }
 
 .doc-item pre {
   position: relative;
+ 
+}
+.markdown-body>:first-child {
+ margin-top: 15px !important;
 }
 
 .doc-item pre .copy {

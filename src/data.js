@@ -23,6 +23,7 @@ export default [
     title: "前端页面生成水印代码",
     date: "2020-06-18 17:02:18",
     path: "doc-4",
+    type: 'component'
   },
   {
     title: "三方平台小程序开发流程思维导图",
