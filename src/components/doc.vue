@@ -22,6 +22,7 @@ export default {
   padding: 15px;
   position: relative;
   height: auto;
+  color: #222;
 }
 .doc-item:not(:first-of-type)::after {
   position: absolute;

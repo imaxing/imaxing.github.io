@@ -71,7 +71,6 @@ export default {
   transform: translateX(0px);
   color: #000;
   transition: all linear 0.3s;
-  background: url("~@/bg.png") repeat #fff;
   position: fixed;
 }
 .sidebar a {
@@ -88,7 +87,7 @@ export default {
   overflow-y: auto;
   transition: all linear 0.3s;
   padding: 15px;
-  color: #222;
+  background: url("~@/bg.png") repeat #fff;
 }
 
 @media (max-width: 767px) {

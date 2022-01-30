@@ -43,6 +43,8 @@ import { copyText } from "@/utils";
 </script>
 <style scoped>
 .markdown-body {
-    background: #fff;
+    background: transparent;
+    --color-fg-default: #222;
+    --color-fg-muted: #222;
 }
 </style>
