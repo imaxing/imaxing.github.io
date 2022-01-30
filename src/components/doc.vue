@@ -55,10 +55,10 @@ export default {
   border-bottom: none !important;
 }
 .content-title {
-  font-size: 18px;
   position: relative;
   transition: 0.3s ease all;
   margin-bottom: 10px;
+  color: #222;
 }
 
 .doc-item pre {

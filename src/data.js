@@ -80,4 +80,10 @@ export default [
     date: "2022-01-27 13:22:22",
     path: "doc-15",
   },
+  {
+    title: "2021, 有喜有悲的一年",
+    date: "2022-01-31 00:13:22",
+    path: "doc-16",
+    type: 'component'
+  },
 ];
