@@ -24,27 +24,26 @@ export function copyText(content) {
   funCopy(content);
 }
 
-
-export  class WaterMask {
+export class WaterMask {
   constructor(props) {
-    props && this.init(props)
+    props && this.init(props);
   }
 
   init(options) {
-    const canvas = document.createElement('canvas')
-    const styleNode = document.createElement('style')
-    const headNode = document.querySelector('head')
+    const canvas = document.createElement("canvas");
+    const styleNode = document.createElement("style");
+    const headNode = document.querySelector("head");
 
-    canvas.width = 250
-    canvas.height = 80
-    styleNode.setAttribute('type', 'text/css')
+    canvas.width = 250;
+    canvas.height = 80;
+    styleNode.setAttribute("type", "text/css");
 
-    document.body.appendChild(canvas)
-    const context = canvas.getContext('2d')
-    context.font = '15px Arial'
-    context.textAlign = 'center'
-    context.rotate(-15 * Math.PI / 180)
-    context.fillText(options.name, canvas.width / 2, canvas.height)
+    document.body.appendChild(canvas);
+    const context = canvas.getContext("2d");
+    context.font = "15px Arial";
+    context.textAlign = "center";
+    context.rotate((-15 * Math.PI) / 180);
+    context.fillText(options.name, canvas.width / 2, canvas.height);
 
     styleNode.innerHTML = `
       body.wm::after {
@@ -60,16 +59,16 @@ export  class WaterMask {
         pointer-events: none;
         background: url(${canvas.toDataURL()}) repeat;
       }
-    `
-    headNode.appendChild(styleNode)
-    document.body.removeChild(canvas)
-    document.body.classList.add('wm')
+    `;
+    headNode.appendChild(styleNode);
+    document.body.removeChild(canvas);
+    document.body.classList.add("wm");
   }
 
   destroy() {
-    document.body.classList.remove('wm')
+    document.body.classList.remove("wm");
   }
   toggle() {
-    document.body.classList.toggle('wm')
+    document.body.classList.toggle("wm");
   }
 }

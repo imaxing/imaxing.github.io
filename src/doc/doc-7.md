@@ -103,6 +103,3 @@
 </body>
 </html>
 ```
-
-#### demo预览
-![效果图](https://cdn.iluoy.com/uploads/articles/b308a8930d2b0343883ca3c73287ab26.png)

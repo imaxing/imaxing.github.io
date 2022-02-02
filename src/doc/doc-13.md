@@ -77,6 +77,3 @@ console.log(obj.value) // 1
 ```
 将 obj 传递给函数后在函数内部直接修改了 obj 的数据类型, 在上面修改 o.value 可以通过引用地址查找到引用地址去修改堆内存中的值, 但是直接修改`o`就不会去根据引用地址去查找原值进行修改, 所以外部没有发生变化
 
----
-灵魂画手更新个图
-![file](https://cdn.iluoy.com/uploads/articles/9104e579085a73bbfdbf757f95821c32.png)
