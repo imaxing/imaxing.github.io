@@ -46,6 +46,7 @@ export default {
 </script>
 <style scoped>
 .markdown-body {
+  --color-canvas-default: transparent;
   --color-fg-default: #222;
   --color-fg-muted: #222;
   --color-canvas-subtle: #222;
