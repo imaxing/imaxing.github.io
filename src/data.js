@@ -23,7 +23,7 @@ export default [
     title: "前端页面生成水印代码",
     date: "2020-06-18 17:02:18",
     path: "doc-4",
-    type: 'component'
+    type: "component",
   },
   {
     title: "三方平台小程序开发流程思维导图",
@@ -84,6 +84,11 @@ export default [
     title: "2021, 有喜有悲的一年",
     date: "2022-01-31 00:13:22",
     path: "doc-16",
-    type: 'component'
+    type: "component",
+  },
+  {
+    title: "github 设置和取消代理",
+    date: "2022-02-07 18:38:22",
+    path: "doc-17",
   },
 ];
