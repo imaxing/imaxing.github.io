@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.md/, '')" />
+    <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
   </div>
 </template>
 

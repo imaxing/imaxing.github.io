@@ -2,7 +2,7 @@
   <div ref="docItem" class="doc-item" v-bind="$attrs">
     <div>
       <h2 class="content-title">
-        <a class="anchor" :href="`#${doc.path.replace(/\.md/, '')}`">#</a>
+        <a class="anchor" :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">#</a>
         {{ doc.title }}
       </h2>
       <p>
