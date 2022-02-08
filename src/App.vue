@@ -1,27 +1,6 @@
 <template>
   <div id="app">
-    <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path" />
-    <!-- <div class="sidebar">
-      <img
-        class="menu"
-        src="@/menu.png"
-        alt="菜单"
-        @click="menuShow = !menuShow"
-      />
-      <a v-for="(doc, index) in docs" :key="index" :href="'#' + doc.path">{{
-        doc.title
-      }}</a>
-    </div>
-    <div class="main" id="main">
-      <doc
-        v-for="(doc, index) in results.length > 0 ? results : docs"
-        :key="index"
-        :doc="doc"
-        :id="doc.path"
-      />
-    </div>
-
-    <div class="backtop" @click="scrollToTop">top</div> -->
+    <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.md/, '')" />
   </div>
 </template>
 

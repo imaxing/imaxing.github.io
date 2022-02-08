@@ -1,43 +1,37 @@
 <template>
   <div ref="docItem" class="doc-item" v-bind="$attrs">
     <div>
-      <h2 class="content-title">{{ doc.title }}</h2>
+      <h2 class="content-title">
+        <a class="anchor" :href="`#${doc.path.replace(/\.md/, '')}`">#</a>
+        {{ doc.title }}
+      </h2>
       <p>
         <small>{{ doc.date }}</small>
         &nbsp;&nbsp;
-        <small
-          class="print-doc"
-          style="text-decoration: underline; cursor: pointer"
-          @click="handlePrint"
-        >
-          打印
-        </small>
+        <small class="print-doc" style="text-decoration: underline; cursor: pointer" @click="handlePrint"> 打印 </small>
       </p>
       <br />
     </div>
-    <component
-      :is="require(`@/doc/${doc.path}`).default"
-      v-if="doc.path.endsWith('.vue')"
-    />
+    <component :is="require(`@/doc/${doc.path}`).default" v-if="doc.path.endsWith('.vue')" />
     <markdown v-else :content="doc.content" />
   </div>
 </template>
 <script>
-import quickPrint from "@iamgx/quick-print";
-import getAllCss from "@iamgx/get-all-css";
+import quickPrint from '@iamgx/quick-print'
+import getAllCss from '@iamgx/get-all-css'
 
 export default {
-  name: "Doc",
-  props: ["doc"],
+  name: 'Doc',
+  props: ['doc'],
   methods: {
     async handlePrint() {
-      const style = await getAllCss();
+      const style = await getAllCss()
       quickPrint(this.$refs.docItem.innerHTML, {
-        style: `${style} .print-doc {display: none}`,
-      });
-    },
-  },
-};
+        style: `${style} .print-doc {display: none}`
+      })
+    }
+  }
+}
 </script>
 
 <style>
@@ -55,7 +49,7 @@ export default {
   margin: 0 20px;
   display: block;
   border-bottom: 1px solid #f6f6f6;
-  content: "";
+  content: '';
 }
 
 .doc-item:not(:last-of-type) {
@@ -67,6 +61,11 @@ export default {
 .content-title {
   position: relative;
   margin-bottom: 10px;
+}
+
+.anchor {
+  text-decoration: none;
+  color: #000;
 }
 
 .doc-item pre {
