@@ -3,6 +3,7 @@ const path = require('path')
 class MoveIndexHtml {
   apply(compiler) {
     compiler.hooks.done.tap('MoveIndexHtml', () => {
+      run(`rm -rf ${path.resolve(__dirname, 'index.html')}`)
       run(`mv ${path.resolve(__dirname, 'dist/index.html')} ${path.resolve(__dirname, './')}`)
     })
   }
