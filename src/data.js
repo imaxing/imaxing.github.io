@@ -22,7 +22,7 @@ export default [
   {
     title: '前端页面生成水印代码',
     date: '2020-06-18 17:02:18',
-    path: 'water-mask.vue'
+    path: 'water-mark.vue'
   },
   {
     title: '原生js下载pdf链接文件而不是打开预览的解决方案',
