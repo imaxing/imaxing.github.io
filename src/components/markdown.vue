@@ -23,7 +23,7 @@ export default {
   directives: {
     highlight: el => {
       el.querySelectorAll('pre code').forEach(block => {
-        window.hljs && window.hljs.highlightBlock(block)
+        window.hljs && window.hljs.highlightElement(block)
       })
     }
   },
