@@ -1,10 +1,6 @@
 
 
-![](https://tva1.sinaimg.cn/large/0082zybpgy1gc7x4f98dej31hc0u0ah1.jpg)
 
-<!--more-->
-
-**记录重置 Mac Launchpad 的命令**
 ##### 行数
 ```
 # 修改

@@ -10,14 +10,14 @@
           style="text-decoration: underline; cursor: pointer"
           @click="handlePrint"
         >
-          点击打印
+          打印
         </small>
       </p>
       <br />
     </div>
     <component
-      :is="require(`@/doc/${doc.path}.vue`).default"
-      v-if="doc.type === 'component'"
+      :is="require(`@/doc/${doc.path}`).default"
+      v-if="doc.path.endsWith('.vue')"
     />
     <markdown v-else :content="doc.content" />
   </div>
@@ -25,12 +25,10 @@
 <script>
 import quickPrint from "@iamgx/quick-print";
 import getAllCss from "@iamgx/get-all-css";
-import markdown from "@/components/markdown.vue";
 
 export default {
   name: "Doc",
   props: ["doc"],
-  components: { markdown },
   methods: {
     async handlePrint() {
       const style = await getAllCss();
@@ -59,12 +57,6 @@ export default {
   border-bottom: 1px solid #f6f6f6;
   content: "";
 }
-.doc-item img {
-  max-width: 80%;
-  display: block;
-  cursor: pointer;
-  margin: 20px auto 0;
-}
 
 .doc-item:not(:last-of-type) {
   margin: 0px auto 40px;
@@ -74,15 +66,11 @@ export default {
 }
 .content-title {
   position: relative;
-  transition: 0.3s ease all;
   margin-bottom: 10px;
 }
 
 .doc-item pre {
   position: relative;
-}
-.markdown-body > :first-child {
-  margin-top: 15px !important;
 }
 
 .doc-item pre .copy {
@@ -93,10 +81,6 @@ export default {
   color: #fff;
 }
 @media (max-width: 767px) {
-  .doc-item img {
-    width: 100%;
-    max-width: none;
-  }
   .print-doc {
     display: none;
   }

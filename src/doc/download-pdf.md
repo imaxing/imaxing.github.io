@@ -1,12 +1,7 @@
 
 
-## 点击 pdf 链接的时候直接下载 pdf 文件到本地, 而非打开新的页面进行预览
-
 
 ```javascript
-
-
-// 通过 blob 下载
 function saveAs(blob, filename) {
   const URL = window.URL || window.webkitURL
   const type = blob.type
