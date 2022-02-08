@@ -83,5 +83,10 @@ export default [
     title: 'github 设置和取消代理',
     date: '2022-02-07 18:38:22',
     path: 'github-proxy.md'
+  },
+  {
+    title: '动态设置elementui主题',
+    date: '2022-02-08 17:43:22',
+    path: 'element-ui-theme-set.vue'
   }
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

@@ -1,7 +1,7 @@
 <template>
   <div>
     <a target="_blank" href="https://www.npmjs.com/package/@iamgx/watermark">
-      <button class="primary-button" role="button" @click="init">npm地址</button>
+      <button class="primary-button" role="button">npm地址</button>
     </a>
     <button class="primary-button" role="button" @click="init">生成水印</button>
     <button

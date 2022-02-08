@@ -1,5 +1,6 @@
 const { run } = require('node-run-cmd')
 const path = require('path')
+const isProd = process.env.NODE_ENV === 'production'
 class MoveIndexHtml {
   apply(compiler) {
     compiler.hooks.done.tap('MoveIndexHtml', () => {
@@ -42,14 +43,18 @@ module.exports = {
     config.plugin('html').tap(args => {
       args[0].chunksSortMode = 'none'
       args[0].inlineSource = '(.css|.js$)'
-      args[0].cdn = {
-        css: [],
-        js: ['https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.min.js']
+      if (isProd) {
+        args[0].cdn = {
+          css: [],
+          js: ['https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js']
+        }
       }
       return args
     })
 
-    config.externals({ vue: 'Vue' })
+    if (isProd) {
+      config.externals({ vue: 'Vue' })
+    }
   },
   css: {
     extract: false
