@@ -44,11 +44,14 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 .markdown-body {
   --color-canvas-default: transparent;
   --color-fg-default: #222;
   --color-fg-muted: #222;
   --color-canvas-subtle: #222;
+}
+.markdown-body pre code {
+  padding: 0;
 }
 </style>

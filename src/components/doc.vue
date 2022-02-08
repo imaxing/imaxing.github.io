@@ -1,19 +1,44 @@
 <template>
-  <div class="doc-item" v-bind="$attrs">
+  <div ref="docItem" class="doc-item" v-bind="$attrs">
     <div>
       <h2 class="content-title">{{ doc.title }}</h2>
-      <small class="content-date">{{ doc.date }}</small>
+      <p>
+        <small>{{ doc.date }}</small>
+        &nbsp;&nbsp;
+        <small
+          class="print-doc"
+          style="text-decoration: underline; cursor: pointer"
+          @click="handlePrint"
+        >
+          点击打印
+        </small>
+      </p>
+      <br />
     </div>
-    <component :is="require(`@/doc/${doc.path}.vue`).default" v-if="doc.type === 'component'" />
+    <component
+      :is="require(`@/doc/${doc.path}.vue`).default"
+      v-if="doc.type === 'component'"
+    />
     <markdown v-else :content="doc.content" />
   </div>
 </template>
 <script>
-import markdown from '@/components/markdown.vue'
+import quickPrint from "@iamgx/quick-print";
+import getAllCss from "@iamgx/get-all-css";
+import markdown from "@/components/markdown.vue";
+
 export default {
   name: "Doc",
   props: ["doc"],
-  components: { markdown }
+  components: { markdown },
+  methods: {
+    async handlePrint() {
+      const style = await getAllCss();
+      quickPrint(this.$refs.docItem.innerHTML, {
+        style: `${style} .print-doc {display: none}`,
+      });
+    },
+  },
 };
 </script>
 
@@ -22,7 +47,7 @@ export default {
   padding: 15px;
   position: relative;
   height: auto;
-  color: #222;
+  overflow-x: hidden;
 }
 .doc-item:not(:first-of-type)::after {
   position: absolute;
@@ -41,13 +66,6 @@ export default {
   margin: 20px auto 0;
 }
 
-.content-date {
-  font-size: 12px;
-  color: #999;
-  margin-bottom: 10px;
-  display: block;
-}
-
 .doc-item:not(:last-of-type) {
   margin: 0px auto 40px;
 }
@@ -58,15 +76,13 @@ export default {
   position: relative;
   transition: 0.3s ease all;
   margin-bottom: 10px;
-  color: #222;
 }
 
 .doc-item pre {
   position: relative;
- 
 }
-.markdown-body>:first-child {
- margin-top: 15px !important;
+.markdown-body > :first-child {
+  margin-top: 15px !important;
 }
 
 .doc-item pre .copy {
@@ -76,11 +92,13 @@ export default {
   cursor: pointer;
   color: #fff;
 }
-
 @media (max-width: 767px) {
   .doc-item img {
     width: 100%;
     max-width: none;
+  }
+  .print-doc {
+    display: none;
   }
 }
 </style>
