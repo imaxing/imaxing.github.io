@@ -10,9 +10,7 @@
   "dependencies": {
     "@iamgx/get-all-css": "^0.9.10",
     "@iamgx/quick-print": "^1.0.2",
-    "core-js": "^3.6.5",
-    "markdown-it": "^12.3.2",
-    "vue": "^2.6.11"
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -22,7 +20,8 @@
     "html-webpack-plugin": "^4.0.0",
     "markdown-loader": "^6.0.0",
     "node-run-cmd": "^1.0.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vue": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,

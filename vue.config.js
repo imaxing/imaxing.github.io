@@ -1,56 +1,56 @@
-const { run } = require("node-run-cmd");
-const path = require("path");
+const { run } = require('node-run-cmd')
+const path = require('path')
 class MoveIndexHtml {
   apply(compiler) {
-    compiler.hooks.done.tap("MoveIndexHtml", () => {
-      run(
-        `mv ${path.resolve(__dirname, "dist/index.html")} ${path.resolve(
-          __dirname,
-          "./"
-        )}`
-      );
-    });
+    compiler.hooks.done.tap('MoveIndexHtml', () => {
+      run(`mv ${path.resolve(__dirname, 'dist/index.html')} ${path.resolve(__dirname, './')}`)
+    })
   }
 }
 
 module.exports = {
+  productionSourceMap: false,
   configureWebpack: {
     optimization: {
-      splitChunks: false,
+      splitChunks: false
     },
     resolve: {
-      extensions: [".md"],
+      extensions: ['.md']
     },
-    plugins: [new MoveIndexHtml()],
+    plugins: [new MoveIndexHtml()]
   },
-  publicPath: "/", //使用相对路径
-  outputDir: "dist",
+  publicPath: '/', //使用相对路径
+  outputDir: 'dist',
   productionSourceMap: false,
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     config.module
-      .rule("md")
+      .rule('md')
       .test(/\.md$/)
-      .use("html-loader")
-      .loader("html-loader")
+      .use('html-loader')
+      .loader('html-loader')
       .end()
-      .use("markdown-loader")
-      .loader("markdown-loader")
-      .end();
+      .use('markdown-loader')
+      .loader('markdown-loader')
+      .end()
 
-    config.plugin("preload").tap((args) => {
-      args[0].fileBlacklist.push(/\.css/, /\.js/);
-      return args;
-    });
-    config
-      .plugin("inline-source")
-      .use(require("html-webpack-inline-source-plugin"));
-    config.plugin("html").tap((args) => {
-      args[0].chunksSortMode = "none";
-      args[0].inlineSource = "(.css|.js$)";
-      return args;
-    });
+    config.plugin('preload').tap(args => {
+      args[0].fileBlacklist.push(/\.css/, /\.js/)
+      return args
+    })
+    config.plugin('inline-source').use(require('html-webpack-inline-source-plugin'))
+    config.plugin('html').tap(args => {
+      args[0].chunksSortMode = 'none'
+      args[0].inlineSource = '(.css|.js$)'
+      args[0].cdn = {
+        css: [],
+        js: ['https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.min.js']
+      }
+      return args
+    })
+
+    config.externals({ vue: 'Vue' })
   },
   css: {
-    extract: false,
-  },
-};
+    extract: false
+  }
+}
