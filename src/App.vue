@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <span @click="startPlay" class="asteroid">王牌飞行</span>
     <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
   </div>
 </template>
@@ -11,6 +12,17 @@ export default {
   name: 'App',
   components: { doc },
   data: () => ({ docs: [] }),
+  methods: {
+    startPlay() {
+      const s = document.createElement('script')
+      s.type = 'text/javascript'
+      document.body.appendChild(s)
+      s.src = 'http://www.websiteasteroids.com/asteroids.min.js'
+      setTimeout(() => {
+        document.getElementById('ASTEROIDS-NAVIGATION').innerText = 'WAD键控制, 空格开枪'
+      }, 1000)
+    }
+  },
   mounted() {
     this.docs = docList.map(doc => ({
       ...doc,
@@ -39,45 +51,29 @@ export default {
 </style>
 
 <style>
-.primary-button {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #41403e;
+.asteroid {
+  position: fixed;
+  left: -5px;
+  bottom: -20px;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border: none;
+  font-size: 12px;
+  background: crimson;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 4px 0 0;
+  transition: all ease 0.3s;
   cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: 0.2em 0.75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-right: 4px;
 }
-
-.primary-button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-}
-
-.primary-button:focus {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+.asteroid:hover {
+  left: 0px;
+  bottom: 0px;
 }
 </style>
 <style>
