@@ -78,7 +78,8 @@ export default {
 </style>
 <style>
 @media (max-width: 767px) {
-  .copy {
+  .copy,
+  .asteroid {
     display: none;
   }
   #app {
