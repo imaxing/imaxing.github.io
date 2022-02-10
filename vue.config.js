@@ -12,12 +12,25 @@ class MoveIndexHtml {
 
 module.exports = {
   productionSourceMap: false,
+  devServer: {
+    port: 8080,
+    disableHostCheck: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  },
   configureWebpack: {
     optimization: {
       splitChunks: false
     },
     resolve: {
       extensions: ['.md']
+    },
+    // 配置支持微应用
+    output: {
+      library: 'BlogMicroApp',
+      libraryTarget: 'umd',
+      jsonpFunction: `webpackJsonp_BlogMicroApp`
     },
     plugins: [new MoveIndexHtml()]
   },
