@@ -22,8 +22,9 @@ export default {
   },
   directives: {
     highlight: el => {
+      const win = window.proxy || window
       el.querySelectorAll('pre code').forEach(block => {
-        window.hljs && window.hljs.highlightElement(block)
+        win.hljs && win.hljs.highlightElement(block)
       })
     }
   },
