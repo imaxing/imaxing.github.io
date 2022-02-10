@@ -33,57 +33,42 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   max-width: 1000px;
-  margin: 30px auto;
-  background: #fff;
-  box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
-  border-radius: 3px;
+  margin: 0px auto;
+  padding: 30px;
 }
-.mgt10 {
-  margin-top: 10px;
-}
-.mgb10 {
-  margin-bottom: 10px;
-}
-</style>
-
-<style>
 .asteroid {
   position: fixed;
-  left: -5px;
-  bottom: -20px;
-  width: 38px;
-  height: 38px;
-  object-fit: contain;
-  border: none;
-  font-size: 12px;
-  background: crimson;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 4px 0 0;
-  transition: all ease 0.3s;
+  left: 30px;
+  bottom: 30px;
+  color: transparent;
   cursor: pointer;
 }
-.asteroid:hover {
-  left: 0px;
-  bottom: 0px;
+
+img[src="https://codesandbox.io/static/img/play-codesandbox.svg"]
+{
+  display: block;
+  margin: 10px 0;
 }
-</style>
-<style>
+a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 @media (max-width: 767px) {
-  .copy,
-  .asteroid {
+  .print-hide {
     display: none;
   }
   #app {
-    margin: 0;
+    padding: 15px;
   }
 }
 </style>

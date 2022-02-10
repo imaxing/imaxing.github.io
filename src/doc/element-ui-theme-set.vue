@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="mgb10">
+    <section>
       此方法封装了
       <a
         target="_blank"

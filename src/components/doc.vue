@@ -1,19 +1,18 @@
 <template>
   <div ref="docItem" class="doc-item" v-bind="$attrs">
     <div>
-      <h2 class="content-title">
-        <a class="anchor" :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">#</a>
+      <h2 class="head">
+        <a :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">#</a>
         {{ doc.title }}
       </h2>
-      <p>
-        <small>{{ doc.date }}</small>
-        &nbsp;&nbsp;
-        <small class="print-doc" style="text-decoration: underline; cursor: pointer" @click="handlePrint"> 打印 </small>
-      </p>
-      <br />
     </div>
     <component :is="require(`@/doc/${doc.path}`).default" v-if="doc.path.endsWith('.vue')" />
     <markdown v-else :content="doc.content" />
+    <p style="text-align: right">
+      <small>{{ doc.date }}</small>
+      &nbsp;&nbsp;
+      <a href="javascript: void 0" class="print-hide" @click.stop="handlePrint"> 打印 </a>
+    </p>
   </div>
 </template>
 <script>
@@ -36,10 +35,14 @@ export default {
 
 <style>
 .doc-item {
-  padding: 15px;
   position: relative;
-  height: auto;
-  overflow-x: hidden;
+  padding: 30px 0 40px;
+}
+.doc-item img {
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+  border: 1px solid #eee;
 }
 .doc-item:not(:first-of-type)::after {
   position: absolute;
@@ -47,41 +50,28 @@ export default {
   right: 0;
   top: 0;
   margin: 0 20px;
-  display: block;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 1px solid #eee;
   content: '';
 }
-
-.doc-item:not(:last-of-type) {
-  margin: 0px auto 40px;
+.doc-item h2.head {
+  font-weight: 400;
 }
-.markdown-body h2 {
-  border-bottom: none !important;
-}
-.content-title {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.anchor {
+.doc-item h2.head a {
   text-decoration: none;
-  color: #000;
 }
 
 .doc-item pre {
   position: relative;
+  margin: 10px 0;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .doc-item pre .copy {
   position: absolute;
-  right: 16px;
-  top: 16px;
+  right: 14px;
+  top: 14px;
   cursor: pointer;
   color: #fff;
-}
-@media (max-width: 767px) {
-  .print-doc {
-    display: none;
-  }
 }
 </style>

@@ -12,7 +12,7 @@
 import copyText from '@iamgx/easy-copy'
 export default {
   name: 'Markdown',
-  data: () => ({ copyEL: `<pre><span class="copy">复制</span>` }),
+  data: () => ({ copyEL: `<pre><span class="copy print-hide">复制</span>` }),
   props: {
     content: {
       type: String,
@@ -51,14 +51,3 @@ export default {
   }
 }
 </script>
-<style>
-.markdown-body {
-  --color-canvas-default: transparent;
-  --color-fg-default: #222;
-  --color-fg-muted: #222;
-  --color-canvas-subtle: #222;
-}
-.markdown-body pre code {
-  padding: 0;
-}
-</style>

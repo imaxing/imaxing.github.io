@@ -4,7 +4,9 @@
 
 仔细排查一波, 终于 catch 到了一个错误信息
 
-```d.upload.addEventListeners is not a function```
+```
+d.upload.addEventListeners is not a function
+```
 
  <!--more-->
 

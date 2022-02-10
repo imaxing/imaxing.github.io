@@ -15,14 +15,9 @@
 ```
 
 // token 注入
-
 native_data_injection()
 
-
-
-
 // 页面
-
 created() {
   this.init()
 }
@@ -46,11 +41,7 @@ native_data_injection((data) => {
   }, 100)
 })
 
-
-
-
 // 页面
-
 created() {
   const token = getToken()
   !token && emitter.$on('token-set', this.init)
