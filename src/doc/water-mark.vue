@@ -17,14 +17,12 @@
     </a>
     <a href="javascript: void 0" v-if="watermask" @click.stop="watermask.toggle"> 切换 </a>
 
-    <iframe
-      src="https://codesandbox.io/embed/watermark-example-e0n2v?fontsize=14&hidenavigation=1&theme=dark"
-      style="width: 100%; height: 500px; border: 0; border-radius: 4px; overflow: hidden"
-      title="watermark-example"
-      class="mgt10"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    />
+    <a
+      target="_blank"
+      href="https://codesandbox.io/embed/watermark-example-e0n2v?fontsize=14&hidenavigation=1&theme=dark"
+    >
+      <img alt="Edit element-ui-theme-set-example" src="https://codesandbox.io/static/img/play-codesandbox.svg" />
+    </a>
   </div>
 </template>
 
