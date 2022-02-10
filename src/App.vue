@@ -17,7 +17,7 @@ export default {
       const s = document.createElement('script')
       s.type = 'text/javascript'
       document.body.appendChild(s)
-      s.src = 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.2/js/asteroids.min.js'
+      s.src = 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.4/js/asteroids.min.js'
       setTimeout(() => {
         document.getElementById('ASTEROIDS-NAVIGATION').innerText = 'WAD键控制, 空格开枪'
       }, 1000)

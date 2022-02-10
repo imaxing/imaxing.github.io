@@ -59,7 +59,7 @@ module.exports = {
       if (isProd) {
         args[0].cdn = {
           css: [],
-          js: ['https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.1/js/vue.min.js']
+          js: ['https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.4/js/vue.min.js']
         }
       }
       return args

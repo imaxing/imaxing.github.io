@@ -1,7 +1,8 @@
 export default [
   {
-    title: '改变 Mac Launchpad 图标的大小',
+    title: '修改 Mac Launchpad 图标的大小',
     date: '2020-02-24 22:06:41',
+    description: `(大碗宽面MacBook版) \n硬盘不大~, 但要还是要使劲儿下, 就算屏幕装不下~, 没关系还有这招啊🤪`,
     path: 'modify-mac-dock.md'
   },
   {
@@ -87,6 +88,21 @@ export default [
   {
     title: '动态设置elementui主题',
     date: '2022-02-08 17:43:22',
-    path: 'element-ui-theme-set.vue'
+    path: 'element-ui-theme-set.vue',
+    description: h =>
+      h('div', [
+        h(
+          'p',
+          `element-ui的动态主题需求遇到很多次. vue-template-admin 项目中封装了一个 ThemePicker 是通过组件方式调用的(大佬就是强啊!)`
+        ),
+
+        h(
+          'p',
+          `但美中不足的是项目多的时候, 一旦涉及到修改, 就要同时修改好几个组件, 头疼的很, 再自己封装一个组件就很无聊, 所以干脆把大佬的代码封装成一个函数, 随时用随时调用, 包大小只有4kb`
+        ),
+        h('img', {
+          attrs: { height: '80px', src: 'https://tva1.sinaimg.cn/large/008i3skNgy1gz8i4tglttj308207z749.jpg' }
+        })
+      ])
   }
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

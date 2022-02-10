@@ -6,9 +6,15 @@
         {{ doc.title }}
       </h2>
     </div>
+    <div v-if="doc.description" class="doc-description">
+      <component v-if="typeof doc.description === 'function'" :is="{ render: h => doc.description(h) }" />
+      <template v-else>{{ doc.description }}</template>
+    </div>
+
     <component :is="require(`@/doc/${doc.path}`).default" v-if="doc.path.endsWith('.vue')" />
     <markdown v-else :content="doc.content" />
     <p style="text-align: right">
+      &nbsp;&nbsp;
       <small>{{ doc.date }}</small>
       &nbsp;&nbsp;
       <a href="javascript: void 0" class="print-hide" @click.stop="handlePrint"> 打印 </a>
@@ -73,5 +79,11 @@ export default {
   top: 14px;
   cursor: pointer;
   color: #fff;
+}
+
+.doc-description img {
+  max-width: 50%;
+  display: inline-block;
+  margin: 0 4px;
 }
 </style>
