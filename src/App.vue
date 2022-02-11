@@ -41,7 +41,7 @@ export default {
 
 #app {
   -webkit-font-smoothing: antialiased;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0px auto;
   padding: 30px;
 }
