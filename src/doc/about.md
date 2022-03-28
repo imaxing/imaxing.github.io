@@ -44,7 +44,7 @@
 
 # 工作经历
 
-<details>
+<details open>
   <summary>
     <strong>苏州方正璞华信息科技有限公司</strong>
   </summary>
@@ -68,7 +68,7 @@
 
 </details>
 
-<details>
+<details open>
   <summary>
     <strong>苏州中知联信息科技有限公司</strong>
   </summary>
@@ -89,7 +89,7 @@
 ---
 
 </details>
-<details>
+<details open>
   <summary>
     <strong>江苏通付盾信息科技有限公司</strong>
   </summary>
@@ -110,7 +110,7 @@
 
 </details>
 
-<details>
+<details open>
   <summary>
     <strong>苏州罗想软件股份有限公司</strong>
   </summary>
