@@ -1,6 +1,6 @@
 <template>
   <div ref="docItem" class="doc-item" v-bind="$attrs">
-    <div>
+    <div v-if="doc.title">
       <h2 class="head">
         <a :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">#</a>
         {{ doc.title }}
@@ -11,9 +11,9 @@
       <template v-else>{{ doc.description }}</template>
     </div>
 
-    <component :is="require(`@/doc/${doc.path}`).default" v-if="doc.path.endsWith('.vue')" />
+    <component :is="require(`@/doc/${doc.path}`).default" v-if="doc.path && doc.path.endsWith('.vue')" />
     <markdown v-else :content="doc.content" />
-    <p style="text-align: right">
+    <p style="text-align: right" v-if="doc.date">
       &nbsp;&nbsp;
       <small>{{ doc.date }}</small>
       &nbsp;&nbsp;

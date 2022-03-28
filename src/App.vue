@@ -1,7 +1,13 @@
 <template>
   <div id="app">
+    <div class="switch-button" @click="showResume = !showResume">{{ showResume ? '笔记' : '简历' }}</div>
     <span @click="startPlay" class="asteroid">王牌飞行</span>
-    <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
+    <div v-show="!showResume">
+      <template v-for="(doc, index) in docs">
+        <doc v-if="!doc.hide" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
+      </template>
+    </div>
+    <doc v-show="showResume" :doc="resume" id="resume" />
   </div>
 </template>
 
@@ -11,7 +17,7 @@ import doc from '@/components/doc'
 export default {
   name: 'App',
   components: { doc },
-  data: () => ({ docs: [] }),
+  data: () => ({ docs: [], showResume: true, resume: '' }),
   methods: {
     startPlay() {
       const s = document.createElement('script')
@@ -24,10 +30,21 @@ export default {
     }
   },
   mounted() {
+    this.$nextTick(() => {
+      const tags = document.getElementsByTagName('a')
+      for (let i = 0; i < tags.length; i++) {
+        tags[i].target = '_blank'
+      }
+    })
+
     this.docs = docList.map(doc => ({
       ...doc,
       content: doc.path.endsWith('.md') ? require.context('@/doc', true)(`./${doc.path}`) : require(`@/doc/${doc.path}`)
     }))
+
+    this.resume = this.docs.find(d => d.name === 'resume')
+    this.resume.title = null
+    this.resume.date = null
   }
 }
 </script>
@@ -70,5 +87,32 @@ a {
   #app {
     padding: 15px;
   }
+}
+
+button {
+  border: none;
+  color: white;
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #3d87ef;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.switch-button {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 30px;
+  height: 30px;
+  background: #70757a;
+  padding: 2px 5px;
+  color: #fff;
+  cursor: pointer;
 }
 </style>

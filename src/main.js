@@ -1,3 +1,4 @@
+// for qiankun test
 if (window.__POWERED_BY_QIANKUN__) {
   __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__
 }
@@ -11,7 +12,10 @@ let instance = null
 const render = () => {
   Vue.config.productionTip = false
   Vue.component(Markdown.name, Markdown)
-  instance = new Vue({ el: '#app', render: h => h(App) })
+  instance = new Vue({
+    el: '#app',
+    render: h => h(App)
+  })
 }
 
 !window.__POWERED_BY_QIANKUN__ && render()
