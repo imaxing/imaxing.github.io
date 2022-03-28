@@ -24,7 +24,8 @@
 
 - css基础：html规范， 常用css布局（定位/浮动/flex）
 - JS基础（原型/闭包/事件循环/事件队列/异步 Promise/async&await&generateor/JsBridge等） 
-- 熟悉框架 Jquery/Vuejs(2.x&3.0)/AngularJS/Reactjs/ElementUi/AntDesign/VantUi/Tarojs/Nuxtjs/uniapp/Echarts/
+- 熟悉框架 Jquery/Vuejs(2.x&3.0)/AngularJS/Reactjs/ElementUi
+  /AntDesign/VantUi/Tarojs/Nuxtjs/uniapp/Echarts/
 - 熟悉微信开放平台/公众平台生态/微信公众号/网易云信im
 - 熟悉 webpack/rollup/vite/gulp打包工具, 基于webpack代码分割优化， 静态资源cdn处理， 代码逻辑解耦组件等等
 - 熟悉小程序（原生/多端编译）， 有过WebApp开发经验（p基于vue3.0开发），熟悉客户端防抓包处理/
