@@ -14,6 +14,7 @@
 <script>
 import docList from '@/data'
 import doc from '@/components/doc'
+import imagePreview from '@iamgx/image-preview'
 export default {
   name: 'App',
   components: { doc },
@@ -30,6 +31,7 @@ export default {
     }
   },
   mounted() {
+    window.imagePreview = imagePreview
     this.$nextTick(() => {
       const tags = document.getElementsByTagName('a')
       for (let i = 0; i < tags.length; i++) {

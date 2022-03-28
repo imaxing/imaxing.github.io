@@ -1,6 +1,6 @@
 # 个人信息
 
-- **葛星**/男/1994
+- **葛星**/男/1994 <span style="cursor: pointer" onclick="imagePreview(['https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.5/image/identification.png', 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.5/image/daily.png'])">(查看照片)</span>
 - 本科/南京东南科技研修学院
 - 工作年限：5 年
 - 技术博客：<a href="https://imaxing.github.io" style="text-decoration: underline">https://imaxing.github.io</a>
