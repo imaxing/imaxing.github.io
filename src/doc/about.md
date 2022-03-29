@@ -23,7 +23,7 @@
 
 - css基础：html规范， 常用css布局（定位/浮动/flex）
 - JS基础（原型/闭包/事件循环/事件队列/异步 Promise/async&await&generateor/JsBridge等） 
-- 熟悉框架 Jquery/Vuejs(2.x&3.0)/AngularJS/Reactjs/ElementUi
+- 熟悉框架 jQuery/Vuejs(2.x&3.0)/AngularJS/Reactjs/ElementUi
   /AntDesign/VantUi/Tarojs/Nuxtjs/uniapp/Echarts/
 - 熟悉微信开放平台/公众平台生态/微信公众号/网易云信im
 - 熟悉 webpack/rollup/vite/gulp打包工具, 基于webpack代码分割优化， 静态资源cdn处理， 代码逻辑解耦组件等等
@@ -51,7 +51,7 @@
 
 **时间**: 2020/3 ~ 至今 <br />
 **职位**: 前端开发工程师<br />
-**公司核心技术栈**: `vue@2.6.11` `element-ui@2.15.1` `charts` `axios`<br />
+**公司核心技术栈**: `vue@2.6.11` `ElementUi@2.15.1` `charts` `axios`<br />
 **产品相关**: SRM 采云链 (SRM 致力于改善核心企业与供应商上游供应商的关系，实现和
 供应商建立和维持长久、稳定紧密的伙伴关系，从而达到降低采购成本、提升工作效率的目
 的)<br />
@@ -62,7 +62,7 @@
 > - 通过 webpack 提供的打包生命周期函数, 开发 webpack 比对版本插件([具体思路实现方式](https://imaxing.github.io/#refresh-prod-code)), 实现每次新版本推送后用户端可以及时体验最新业务功能, 并支持配置发版标题, 发版描述, 发版时间等, <a href="https://tva1.sinaimg.cn/large/e6c9d24egy1h0pmk5v7crj22js0k2n0r.jpg" target="blank">效果图点击这里</a>
 > - 自己使用 vuejs3.0 开发了一个后台壳子, 还需完善, [github 地址](https://github.com/imaxing/vue_quick_start_template)
 > - 动态路由, 指令级别权限控制, pro-layout, 生成页面水印([水印效果可以看这里](https://imaxing.github.io/#water-mark))等等其他简单的业务功能组件
-> - 基于开发的次系统, 为客户上线了稳定的系统环境, 如: 广发信用卡中心, 和府捞面, 振德医疗, 世纪互联等知名公司
+> - 基于开发的此系统, 为客户上线了稳定的系统环境, 如: 广发信用卡中心, 和府捞面, 振德医疗, 世纪互联等知名公司
 
 ---
 
@@ -75,7 +75,7 @@
 
 **时间**: 2019/3 ~ 2020-2<br />
 **职位**: 前端开发工程师<br />
-**公司核心技术栈**: `vue@2.6.10` `element-ui@2.14.1` `nuxtjs@2.x` `charts` `axios`<br />
+**公司核心技术栈**: `vue@2.6.10` `ElementUi@2.14.1` `nuxtjs@2.x` `charts` `axios`<br />
 **产品相关**: [企服服](https://www.qcc.com/firm/53ae4ecb1021cc9942f83b0112a0ffb8.html), 权查查(相关小程序目前已下线, [点此查看小程序助手记录](https://tva1.sinaimg.cn/large/e6c9d24egy1h0pnyxas76j20wd0u0abr.jpg)<a href=""></a>)<br />
 **岗位职责**:
 
@@ -117,10 +117,10 @@
 
 **时间**:  2016/4 ~ 2017/12<br/>
 **职位**:  前端开发工程师<br/>
-**公司核心技术栈**:  `vuejs@15.x` `eleemnt-ui` `jquery` `easyui` `bootstrap`<br/>
+**公司核心技术栈**:  `vuejs@15.x` `ElementUi` `jquery` `easyui` `bootstrap`<br/>
 **岗位职责**:
-> - 负责订单管家系统的系统搭建功能开发工作, 早起第一次使用vuecli搭建一个vue项目从0-1, 熟悉了vuejs的路由, 请求, 组件, ui等知识, 麻雀虽小五脏俱全, 使用本地化路由+meta进行权限控制, 前期使用了vue-resource请求库, 后期vue官方不维护了替换为了axios
-> - 负责老项目 erp  的功能开发维护工作, 基于jquery+bootstrap的老项目, 没什么可讲的, 学到了通过jquery.extends 开发jquery 插件的一些知识
+> - 负责订单管家系统的系统搭建功能开发工作, 早期第一次使用vuecli搭建一个vue项目从0-1, 熟悉了vuejs的路由, 请求, 组件, ui等知识, 麻雀虽小五脏俱全, 使用本地化路由+meta进行权限控制, 前期使用了vue-resource请求库, 后期vue官方不维护了替换为了axios
+> - 负责老项目erp系统的功能开发维护工作, 基于jquery+bootstrap的老项目, 学到了通过jquery.extends 开发jquery 插件的一些知识
 > - 负责公司内部 ui库 rs-ui  的组件迭代工作, 订单管家项目上线后, 自己动手搭了一套简单的ui库, 在公司内部分享, 虽然后期不用了 但第一次积累下了开发组件的一些心得
 > - 公司内部有较好的技术氛围每周进行一次简单的技术分享, 分享了组件的搭建过程, 如何创建一个自己的table组件等等
 </details>
