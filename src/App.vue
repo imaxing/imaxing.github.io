@@ -116,5 +116,6 @@ button {
   padding: 2px 5px;
   color: #fff;
   cursor: pointer;
+  z-index: 100;
 }
 </style>
