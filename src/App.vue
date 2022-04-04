@@ -18,7 +18,7 @@ import imagePreview from '@iamgx/image-preview'
 export default {
   name: 'App',
   components: { doc },
-  data: () => ({ docs: [], showResume: true, resume: '' }),
+  data: () => ({ docs: [], showResume: false, resume: '' }),
   methods: {
     startPlay() {
       const s = document.createElement('script')
