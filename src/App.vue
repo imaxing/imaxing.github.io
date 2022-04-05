@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="switch-button" @click="showResume = !showResume">{{ showResume ? '笔记' : '简历' }}</div>
+    <!-- <div class="switch-button" @click="showResume = !showResume">{{ showResume ? '笔记' : '简历' }}</div> -->
     <span @click="startPlay" class="asteroid">王牌飞行</span>
     <!-- <div v-show="!showResume"> -->
       <template v-for="(doc, index) in docs">
