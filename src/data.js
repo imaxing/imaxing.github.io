@@ -3,7 +3,7 @@ export default [
   { title: '基于Vuejs的pc端图片查看工具', date: '2022-03-28 18:12:22', path: 'image-preview.vue', hide: false },
   { title: 'elemnt ui pro layout', date: '2022-03-28 18:07:22', path: 'pro-layout.vue', hide: false },
   { title: '动态设置elementui主题', date: '2022-02-08 17:43:22', path: 'element-ui-theme-set.vue', hide: false },
-  { title: '2021, 有喜有悲的一年', date: '2022-01-31 00:13:22', path: '2021-unhappy.vue', hide: false },
+  { title: '2021, 有喜有悲的一年', date: '2022-01-31 00:13:22', path: '2021-unhappy.vue', hide: true },
   {
     title: '项目部署新版本后怎么提示用户刷新浏览器？',
     date: '2022-01-27 16:51:35',
