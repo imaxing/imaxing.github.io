@@ -1,50 +1,19 @@
 <template>
   <div id="app">
-    <span @click="startPlay" class="asteroid">王牌飞行</span>
-    <!-- <template v-for="(doc, index) in docs">
-        <doc v-if="!doc.hide" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
-      </template> -->
-    <doc :doc="resume" id="resume" />
+    <span @click="playGame" class="asteroid">王牌飞行</span>
+    <doc v-if="showResume" :doc="resume" id="resume" />
+    <div v-show="!showResume">
+      <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
+    </div>
   </div>
 </template>
 
 <script>
-import docList from '@/data'
-import doc from '@/components/doc'
-import imagePreview from '@iamgx/image-preview'
+import { docs, resume } from '@/data'
+
 export default {
   name: 'App',
-  components: { doc },
-  data: () => ({ docs: [], showResume: false, resume: '' }),
-  methods: {
-    startPlay() {
-      const s = document.createElement('script')
-      s.type = 'text/javascript'
-      document.body.appendChild(s)
-      s.src = 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.4/js/asteroids.min.js'
-      setTimeout(() => {
-        document.getElementById('ASTEROIDS-NAVIGATION').innerText = 'WAD键控制, 空格开枪'
-      }, 1000)
-    }
-  },
-  mounted() {
-    window.imagePreview = imagePreview
-    this.$nextTick(() => {
-      const tags = document.getElementsByTagName('a')
-      for (let i = 0; i < tags.length; i++) {
-        tags[i].target = '_blank'
-      }
-    })
-
-    this.docs = docList.map(doc => ({
-      ...doc,
-      content: doc.path.endsWith('.md') ? require.context('@/doc', true)(`./${doc.path}`) : require(`@/doc/${doc.path}`)
-    }))
-
-    this.resume = this.docs.find(d => d.name === 'resume')
-    this.resume.title = null
-    this.resume.date = null
-  }
+  data: () => ({ showResume: false, resume, docs })
 }
 </script>
 
@@ -57,7 +26,7 @@ export default {
 
 #app {
   -webkit-font-smoothing: antialiased;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0px auto;
   padding: 30px;
 }

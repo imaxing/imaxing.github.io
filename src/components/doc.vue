@@ -1,89 +1,63 @@
 <template>
   <div ref="docItem" class="doc-item" v-bind="$attrs">
-    <div v-if="doc.title">
-      <h2 class="head">
-        <a :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">#</a>
-        {{ doc.title }}
-      </h2>
-    </div>
-    <div v-if="doc.description" class="doc-description">
-      <component v-if="typeof doc.description === 'function'" :is="{ render: h => doc.description(h) }" />
-      <template v-else>{{ doc.description }}</template>
-    </div>
+    <a class="title" v-if="doc.title" :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">{{ doc.title }}</a>
+
+    <h3 class="description" v-if="doc.description">{{ doc.description }}</h3>
 
     <component :is="require(`@/doc/${doc.path}`).default" v-if="doc.path && doc.path.endsWith('.vue')" />
     <markdown v-else :content="doc.content" />
-    <p style="text-align: right" v-if="doc.date">
-      &nbsp;&nbsp;
-      <small>{{ doc.date }}</small>
-      &nbsp;&nbsp;
-      <a href="javascript: void 0" class="print-hide" @click.stop="handlePrint"> 打印 </a>
-    </p>
+
+    <div class="info">
+      <quick-icon class="print-hide" v-if="doc.date">{{ doc.date }}</quick-icon>
+      <span>
+        <quick-icon class="print-hide" v-if="doc.github" icon="icon-github" :href="doc.github" />
+        <quick-icon class="print-hide" v-if="doc.npm" icon="icon-npm" :href="doc.npm" />
+        <quick-icon class="print-hide" v-if="doc.sandbox" icon="icon-CodeSandbox" :href="doc.sandbox" />
+        <quick-icon
+          class="print-hide"
+          v-if="doc.print"
+          @click="quickPrint($refs.docItem.innerHTML)"
+          icon="icon-print"
+        />
+      </span>
+    </div>
   </div>
 </template>
 <script>
-import quickPrint from '@iamgx/quick-print'
-import getAllCss from '@iamgx/get-all-css'
-
 export default {
   name: 'Doc',
-  props: ['doc'],
-  methods: {
-    async handlePrint() {
-      const style = await getAllCss()
-      quickPrint(this.$refs.docItem.innerHTML, {
-        style: `${style} .print-doc {display: none}`
-      })
-    }
-  }
+  props: ['doc']
 }
 </script>
 
 <style>
 .doc-item {
   position: relative;
-  padding: 30px 0 40px;
+  padding: 10px 0;
+  margin: 10px auto 0;
+  border-bottom: 1px solid #eee;
 }
+
 .doc-item img {
   max-height: 300px;
   max-width: 100%;
   object-fit: contain;
-  border: 1px solid #eee;
 }
-.doc-item:not(:first-of-type)::after {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  margin: 0 20px;
-  border-bottom: 1px solid #eee;
-  content: '';
-}
-.doc-item h2.head {
-  font-weight: 400;
-}
-.doc-item h2.head a {
+
+.doc-item .title {
   text-decoration: none;
+  color: #333;
+  font-weight: 400;
+  font-size: 26px;
+}
+.doc-item .description {
+  margin: 15px 0;
 }
 
-.doc-item pre {
-  position: relative;
-  margin: 10px 0;
-  max-height: 500px;
-  overflow-y: auto;
-}
-
-.doc-item pre .copy {
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.doc-description img {
-  max-width: 50%;
-  display: inline-block;
-  margin: 0 4px;
+.doc-item .info {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 </style>

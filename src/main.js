@@ -1,30 +1,41 @@
-// for qiankun test
-if (window.__POWERED_BY_QIANKUN__) {
-  __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__
-}
-
 import Vue from 'vue'
 import App from '@/App'
-import Markdown from '@/components/markdown.vue'
+import Markdown from '@/components/markdown'
+import doc from '@/components/doc'
+import icon from '@/components/icon'
+import imagePreview from '@iamgx/image-preview'
+import loadStyle from '@iamgx/load-style'
+import getAllCss from '@iamgx/get-all-css'
+import quickPrint from '@iamgx/quick-print'
 
-let instance = null
+window.imagePreview = imagePreview
+Vue.config.productionTip = false
+Vue.component(Markdown.name, Markdown)
+Vue.component(doc.name, doc)
+Vue.component(icon.name, icon)
+Vue.prototype.imagePreview = imagePreview
 
-const render = () => {
-  Vue.config.productionTip = false
-  Vue.component(Markdown.name, Markdown)
-  instance = new Vue({
-    el: '#app',
-    render: h => h(App)
+Vue.prototype.playGame = () => {
+  const s = document.createElement('script')
+  s.type = 'text/javascript'
+  document.body.appendChild(s)
+  s.src = 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.4/js/asteroids.min.js'
+  setTimeout(() => {
+    document.getElementById('ASTEROIDS-NAVIGATION').innerText = 'WAD键控制, 空格开枪'
+  }, 1000)
+}
+
+Vue.prototype.quickPrint = async content => {
+  const style = await getAllCss()
+  quickPrint(content, {
+    style: `${style} .print-hide {display: none}`
   })
 }
 
-!window.__POWERED_BY_QIANKUN__ && render()
-
-export const bootstrap = async () => console.log(' bootstraped')
-
-export const mount = async props => render(props)
-
-export const unmount = async () => {
-  instance.$destroy()
-  instance = null
-}
+new Vue({
+  el: '#app',
+  mounted() {
+    loadStyle('https://at.alicdn.com/t/font_3326808_b5m4dl6nitf.css')
+  },
+  render: h => h(App)
+})

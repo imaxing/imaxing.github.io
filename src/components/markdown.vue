@@ -51,3 +51,19 @@ export default {
   }
 }
 </script>
+<style>
+.markdown-body pre {
+  position: relative;
+  margin: 10px 0;
+  overflow-y: auto;
+  max-height: 1000px;
+}
+
+.markdown-body pre .copy {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+</style>
