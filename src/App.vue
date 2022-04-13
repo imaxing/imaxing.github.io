@@ -1,13 +1,10 @@
 <template>
   <div id="app">
-    <!-- <div class="switch-button" @click="showResume = !showResume">{{ showResume ? '笔记' : '简历' }}</div> -->
     <span @click="startPlay" class="asteroid">王牌飞行</span>
-    <!-- <div v-show="!showResume"> -->
-      <template v-for="(doc, index) in docs">
+    <!-- <template v-for="(doc, index) in docs">
         <doc v-if="!doc.hide" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
-      </template>
-    <!-- </div> -->
-    <!-- <doc v-show="showResume" :doc="resume" id="resume" /> -->
+      </template> -->
+    <doc :doc="resume" id="resume" />
   </div>
 </template>
 
