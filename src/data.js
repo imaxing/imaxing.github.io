@@ -1,6 +1,14 @@
 export const resume = { title: '', name: 'resume', path: 'resume.vue', print: false }
 export const docs = [
   {
+    title: 'canvas绘制带笔锋效果线条',
+    description: '此工具基于smooth-signature项目进行二次修改',
+    date: '2022-06-22 19:12:22',
+    path: 'smooth-line.vue',
+    npm: 'https://www.npmjs.com/package/@iamgx/smooth-line',
+    sandbox: 'https://codesandbox.io/s/smooth-line-redraw-j9trdv?file=/src/App.vue'
+  },
+  {
     title: '基于Vuejs的pc端图片查看工具',
     description: '封装了一个pc的图片查看工具, 点击图片测试',
     date: '2022-03-28 18:12:22',
