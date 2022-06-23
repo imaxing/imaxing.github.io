@@ -1,6 +1,15 @@
 export const resume = { title: '', name: 'resume', path: 'resume.vue', print: false }
 export const docs = [
   {
+    title: 'pdf转图片',
+    description: '读取pdf转为图片展示',
+    date: '2022-05-22 21:33:21',
+    path: 'pdf-to-image.vue',
+    npm: 'https://www.npmjs.com/package/@iamgx/pdf-to-image',
+    sandbox: 'https://codesandbox.io/s/pdf-to-image-2wrepn?file=/src/App.vue',
+    github: 'https://github.com/imaxing/pdf-to-image'
+  },
+  {
     title: 'canvas绘制带笔锋效果线条',
     description: '此工具基于smooth-signature项目进行二次修改',
     date: '2022-06-22 19:12:22',
