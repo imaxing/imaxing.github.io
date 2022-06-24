@@ -10,7 +10,7 @@
   "dependencies": {
     "@iamgx/easy-copy": "^1.0.0",
     "@iamgx/get-all-css": "^0.9.10",
-    "@iamgx/image-preview": "^1.0.2",
+    "@iamgx/image-preview": "^1.0.3",
     "@iamgx/load-style": "^1.0.0",
     "@iamgx/pdf-to-image": "^1.0.0",
     "@iamgx/quick-print": "^1.0.2",

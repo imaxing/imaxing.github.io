@@ -3,17 +3,17 @@ import App from '@/App'
 import Markdown from '@/components/markdown'
 import doc from '@/components/doc'
 import icon from '@/components/icon'
-import imagePreview from '@iamgx/image-preview'
+import ImagePreview from '@iamgx/image-preview'
 import loadStyle from '@iamgx/load-style'
 import getAllCss from '@iamgx/get-all-css'
 import quickPrint from '@iamgx/quick-print'
 
-window.imagePreview = imagePreview
 Vue.config.productionTip = false
+Vue.use(ImagePreview)
 Vue.component(Markdown.name, Markdown)
 Vue.component(doc.name, doc)
 Vue.component(icon.name, icon)
-Vue.prototype.imagePreview = imagePreview
+window.imagePreview = new Vue().imagePreview
 
 Vue.prototype.playGame = () => {
   const s = document.createElement('script')
