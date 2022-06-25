@@ -12,7 +12,7 @@
         :key="c"
       />
     </div>
-    <div style="display: flex">
+    <div style="display: flex;">
       <canvas ref="canvas"></canvas>&nbsp;
       <canvas ref="redrawCanvas"></canvas>
     </div>
@@ -73,10 +73,10 @@ export default {
     colors: ['#000', '#e93423', '#fffd56', '#6ffa4c', '#0024f5', '#e6db74', 'purple']
   }),
   mounted() {
-    this.$refs.canvas.width = 500
-    this.$refs.canvas.height = 500
-    this.$refs.redrawCanvas.width = 500
-    this.$refs.redrawCanvas.height = 500
+    this.$refs.canvas.width = 400
+    this.$refs.canvas.height = 400
+    this.$refs.redrawCanvas.width = 400
+    this.$refs.redrawCanvas.height = 400
 
     const smoothLineInstance = new SmoothLine({
       canvas: this.$refs.canvas,
