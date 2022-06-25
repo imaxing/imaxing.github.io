@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <span @click="playGame" class="asteroid">王牌飞行</span>
-    <doc v-if="showResume" :doc="resume" id="resume" />
-    <div v-show="!showResume">
-      <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
-    </div>
+    <doc v-for="(doc, index) in docs" :key="index" :doc="doc" :id="doc.path.replace(/\.|vue|md/g, '')" />
   </div>
 </template>
 
@@ -22,6 +19,10 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+    Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
 }
 
 #app {

@@ -56,7 +56,6 @@ export default {
   position: relative;
   margin: 10px 0;
   overflow-y: auto;
-  max-height: 1000px;
 }
 
 .markdown-body pre .copy {

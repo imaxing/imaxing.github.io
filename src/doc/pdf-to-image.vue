@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="pdfUrl" style="width: 600px" />
+    <input v-model="pdfUrl" style="width: 80%" />
     <br />
     <br />
     <button @click="loadPdf" :disabled="loading">{{ loading ? '加载中' : '加载pdf' }}</button>

@@ -12,59 +12,30 @@
         :key="c"
       />
     </div>
-    <div style="display: flex;">
-      <canvas ref="canvas"></canvas>&nbsp;
-      <canvas ref="redrawCanvas"></canvas>
-    </div>
+    <canvas ref="canvas"></canvas>
+    <canvas ref="redrawCanvas"></canvas>
   </div>
 </template>
 
 <script>
 import SmoothLine from '@iamgx/smooth-line'
+import useMouse from '@iamgx/use-mouse'
 
 const eventFormat = e => {
-  return {
-    cx: e.offsetX,
-    cy: e.offsetY,
-    touches: []
-  }
-}
-const useMouse = ({ el, onMove, onStart, onEnd }) => {
-  if (!el) return
-
-  let isTouchStart = false
-  let startPoint = null
-
-  const start = () => {
-    stop()
-    el.addEventListener('mousedown', onTouchStart, false)
-    el.addEventListener('mousemove', onTouchMove, false)
-    el.addEventListener('mouseup', onTouchEnd, false)
-  }
-
-  const stop = () => {
-    el.removeEventListener('mousedown', onTouchStart, false)
-    el.removeEventListener('mousemove', onTouchMove, false)
-    el.removeEventListener('mouseup', onTouchEnd, false)
-  }
-
-  const onTouchStart = e => {
-    e.preventDefault()
-    isTouchStart = true
-    startPoint = eventFormat(e)
-    onStart && onStart({ event: startPoint, start: startPoint })
-  }
-  const onTouchEnd = e => {
-    isTouchStart = false
-    onEnd && onEnd(e)
-  }
-  const onTouchMove = e => {
-    e.preventDefault()
-    if (!isTouchStart) return
-    onMove && onMove({ event: eventFormat(e), start: startPoint })
-  }
-  start()
-  return stop
+  const isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
+  return isMobile
+    ? {
+        cx: e.touches[0].clientX,
+        cy: e.touches[0].clientY,
+        pageX: e.touches[0].pageX,
+        pageY: e.touches[0].pageY,
+        touches: e.touches
+      }
+    : {
+        cx: e.offsetX,
+        cy: e.offsetY,
+        touches: []
+      }
 }
 
 export default {
@@ -73,10 +44,11 @@ export default {
     colors: ['#000', '#e93423', '#fffd56', '#6ffa4c', '#0024f5', '#e6db74', 'purple']
   }),
   mounted() {
-    this.$refs.canvas.width = 400
-    this.$refs.canvas.height = 400
-    this.$refs.redrawCanvas.width = 400
-    this.$refs.redrawCanvas.height = 400
+    const width = document.querySelector('#app').getBoundingClientRect().width
+    this.$refs.canvas.width = width - 50
+    this.$refs.canvas.height = width / 2
+    this.$refs.redrawCanvas.width = width - 50
+    this.$refs.redrawCanvas.height = width / 2
 
     const smoothLineInstance = new SmoothLine({
       canvas: this.$refs.canvas,
@@ -93,11 +65,13 @@ export default {
 
     useMouse({
       el: this.$refs.canvas,
-      onStart: ({ event }) => {
+      onStart: e => {
+        const event = eventFormat(e)
         smoothLineInstance.onSmoothLineInit({ ...event, t: Date.now() })
         smoothLineReDrawInstance.onSmoothLineInit({ ...event, t: Date.now() })
       },
-      onMove: ({ event }) => {
+      onMove: e => {
+        const event = eventFormat(e)
         event.t = Date.now()
         smoothLineInstance.onSmoothLineDrawing(event)
         smoothLineReDrawInstance.onSmoothLineDrawing(event)
@@ -114,6 +88,8 @@ export default {
 <style scoped>
 canvas {
   box-shadow: 0 0 0 1px #ddd;
+  max-width: 100vw;
+  background-color: #fff;
 }
 .colors {
   max-width: 300px;

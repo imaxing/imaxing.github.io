@@ -15,6 +15,7 @@
     "@iamgx/pdf-to-image": "^1.0.0",
     "@iamgx/quick-print": "^1.0.2",
     "@iamgx/smooth-line": "^1.0.1",
+    "@iamgx/use-mouse": "^1.0.0",
     "@iamgx/watermark": "^1.0.4",
     "core-js": "^3.6.5"
   },
