@@ -1,9 +1,16 @@
 export const resume = { title: '', name: 'resume', path: 'resume.vue', print: false }
 export const docs = [
   {
+    title: '使用 Proxy 劫持函数执行',
+    description:
+      '使用Proxy来劫持函数执行，可以在函数执行前后做一些操作，比如添加日志、添加异常处理等。比如劫持 console.log方法, 实时显示在页面上! 代码非常简单, 核心就是劫持function的apply参数, 打开控制台, 试试console.log方法吧!',
+    date: '2022-07-09 19:52:21',
+    path: 'proxy-function.vue'
+  },
+  {
     title: 'pdf转图片',
     description: '读取pdf转为图片展示',
-    date: '2022-05-22 21:33:21',
+    date: '2022-06-26 21:33:21',
     path: 'pdf-to-image.vue',
     npm: 'https://www.npmjs.com/package/@iamgx/pdf-to-image',
     sandbox: 'https://codesandbox.io/s/pdf-to-image-2wrepn?file=/src/App.vue',

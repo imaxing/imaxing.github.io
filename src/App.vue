@@ -61,15 +61,15 @@ a {
 button {
   border: none;
   color: white;
-  padding: 6px 20px;
+  padding: 0 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-  background-color: #3d87ef;
+  background-color: #303133;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .switch-button {
@@ -84,5 +84,9 @@ button {
   color: #fff;
   cursor: pointer;
   z-index: 100;
+}
+.image-align-center {
+  display: block;
+  margin: 15px auto;
 }
 </style>

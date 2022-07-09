@@ -3,7 +3,7 @@
     <input v-model="pdfUrl" style="width: 80%" />
     <br />
     <br />
-    <button @click="loadPdf" :disabled="loading">{{ loading ? '加载中' : '加载pdf' }}</button>
+    <button @click="loadPdf" :disabled="loading">{{ loading ? '加载中' : '点击开始转换' }}</button>
   </div>
 </template>
 

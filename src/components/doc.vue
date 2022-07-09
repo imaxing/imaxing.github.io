@@ -1,6 +1,9 @@
 <template>
   <div ref="docItem" class="doc-item" v-bind="$attrs">
-    <a class="title" v-if="doc.title" :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">{{ doc.title }}</a>
+    <h2 v-if="doc.title" class="title">
+      <a :href="`#${doc.path.replace(/\.|vue|md/g, '')}`">#</a>
+      {{ doc.title }}
+    </h2>
 
     <h3 class="description" v-if="doc.description">{{ doc.description }}</h3>
 
@@ -36,6 +39,7 @@ export default {
   padding: 10px 0;
   margin: 10px auto 0;
   border-bottom: 1px solid #eee;
+  color: #555;
 }
 
 .doc-item img {
@@ -45,11 +49,25 @@ export default {
 }
 
 .doc-item .title {
-  text-decoration: none;
-  color: #333;
+  color: #222;
+  font-size: 1.5em;
   font-weight: 400;
-  font-size: 26px;
+  position: relative;
 }
+.doc-item .title:hover a {
+  opacity: 1;
+}
+.doc-item .title a {
+  position: absolute;
+  left: -30px;
+  width: 28px;
+  height: 100%;
+  text-align: center;
+  top: 0;
+  text-decoration: none;
+  opacity: 0;
+}
+
 .doc-item .description {
   margin: 15px 0;
 }
