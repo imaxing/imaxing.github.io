@@ -3,31 +3,38 @@ export const docs = [
   {
     title: '使用 Proxy 劫持函数执行',
     description:
-      '使用Proxy来劫持函数执行，可以在函数执行前后做一些操作，比如添加日志、添加异常处理等。比如劫持 console.log方法, 实时显示在页面上! 代码非常简单, 核心就是劫持function的apply参数, 打开控制台, 试试console.log方法吧!',
-    date: '2022-07-09 19:52:21',
-    path: 'proxy-function.vue'
+      '使用Proxy来劫持函数执行，可以在函数执行前后做一些操作，比如添加日志、添加异常处理等。比如劫持 console.log方法, 实时显示在页面上! 代码非常简单, 核心就是劫持function的apply参数, 打开控制台, 尝试输入console.log("hello world")。',
+    date: '2022-07-09',
+    path: 'proxy-function.vue',
+    references: [
+      {
+        name: '扩展构造函数',
+        href: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy#%E6%89%A9%E5%B1%95%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0'
+      }
+    ]
   },
   {
-    title: 'pdf转图片',
-    description: '读取pdf转为图片展示',
-    date: '2022-06-26 21:33:21',
+    title: '通过 Pdf.js 加载 PDF 文件并转换为图片',
+    description: '读取pdf转为图片展示, 输入框内输入有效的pdf地址可以进行测试',
+    date: '2022-06-26',
     path: 'pdf-to-image.vue',
     npm: 'https://www.npmjs.com/package/@iamgx/pdf-to-image',
     sandbox: 'https://codesandbox.io/s/pdf-to-image-2wrepn?file=/src/App.vue',
     github: 'https://github.com/imaxing/pdf-to-image'
   },
   {
-    title: 'canvas绘制带笔锋效果线条',
-    description: '此工具基于smooth-signature项目进行二次修改',
-    date: '2022-06-22 19:12:22',
+    title: '使用 canvas 绘制带笔锋效果的线条',
+    description:
+      '此工具基于smooth-signature项目进行二次修改, 将原有代码的逻辑与canvas进行解耦, 满足多层画布重新绘制的需求, <a target="_blank" href="https://github.com/linjc/smooth-signature">源代码库主页</a>',
+    date: '2022-06-22',
     path: 'smooth-line.vue',
     npm: 'https://www.npmjs.com/package/@iamgx/smooth-line',
     sandbox: 'https://codesandbox.io/s/smooth-line-redraw-j9trdv?file=/src/App.vue'
   },
   {
-    title: '基于Vuejs的pc端图片查看工具',
-    description: '封装了一个pc的图片查看工具, 点击图片测试',
-    date: '2022-03-28 18:12:22',
+    title: '基于Vuejs2封装图片快捷查看工具',
+    description: '封装一个图片查看工具, 点击下面图片进行测试, 函数调用方便, 具体使用方法可参考文档或者codesandbox',
+    date: '2022-03-28',
     path: 'image-preview.vue',
     print: true,
     github: 'https://github.com/imaxing/image-preview',
@@ -35,9 +42,9 @@ export const docs = [
     sandbox: 'https://codesandbox.io/s/image-preview-example-zekx32?fontsize=14&hidenavigation=1&theme=dark'
   },
   {
-    title: 'elemnt ui pro layout',
-    date: '2022-03-28 18:07:22',
-    description: '基于ant-pro-layout的api封装了下elementui版本的layout, 方便业务开发',
+    title: '封装基于ElementUi的布局组件',
+    date: '2022-03-28',
+    description: '参照@ant/pro-layout项目的api封装了下elementui版本的layout, 为了方便开发后台系统类型的业务',
     path: 'pro-layout.md',
     print: true,
     npm: 'https://www.npmjs.com/package/@iamgx/pro-layout',
@@ -48,7 +55,7 @@ export const docs = [
   {
     title: '动态设置elementui主题',
     description: '此方法封装了 vue-element-admin 中的实现, 修改为函数式调用',
-    date: '2022-02-08 17:43:22',
+    date: '2022-02-08',
     path: 'element-ui-theme-set.md',
     print: true,
     npm: 'https://www.npmjs.com/package/@iamgx/element-ui-theme-set',
@@ -57,14 +64,16 @@ export const docs = [
   },
   {
     title: '项目部署新版本后怎么提示用户刷新浏览器？',
-    date: '2022-01-27 16:51:35',
+    description: '在不使用websocket的情况下, 实现项目部署新版本后提示用户刷新浏览器',
+    date: '2022-01-27',
     path: 'refresh-prod-code.md',
     hide: false,
     print: true
   },
   {
-    title: '前端页面生成水印代码',
-    date: '2020-06-18 17:02:18',
+    title: '页面中快速生成水印效果',
+    date: '2020-06-18',
+    description: '使用canvas绘制水印, 不额外创建dom元素, 可以在页面中快速生成水印效果',
     path: 'water-mark.vue',
     npm: 'https://www.npmjs.com/package/@iamgx/watermark',
     github: 'https://github.com/imaxing/watermark',

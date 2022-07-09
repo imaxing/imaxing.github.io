@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      style="width: 200px; height: 200px"
+      style="width: 200px; height: 200px; object-fit: cover;margin: 4px"
       @click="imagePreview(list, { index: i })"
       v-for="(it, i) in list"
       :key="i"
@@ -16,8 +16,10 @@ export default {
   name: 'ImagePreview',
   data: () => ({
     list: [
-      'https://tva1.sinaimg.cn/large/008i3skNgy1gz8i4tglttj308207z749.jpg',
-      'https://tva1.sinaimg.cn/large/e6c9d24egy1gzpuhh1kk1j20u00u0q44.jpg'
+      'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.9/wallpaper/wallpaper_0.png',
+      'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.9/wallpaper/wallpaper_2.png',
+      'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.9/wallpaper/wallpaper_3.png',
+      'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.9/wallpaper/wallpaper_4.png',
     ]
   })
 }

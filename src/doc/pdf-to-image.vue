@@ -12,7 +12,7 @@ import pdfToImage from '@iamgx/pdf-to-image'
 export default {
   name: 'PdfToImage',
   data: () => ({
-    pdfUrl: 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.7/pdf/开口无模具费新建合同.pdf',
+    pdfUrl: 'https://cdn.jsdelivr.net/gh/imaxing/cdn@1.0.9/pdf/壁纸.pdf',
     loading: false
   }),
   methods: {

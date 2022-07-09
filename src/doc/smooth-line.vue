@@ -1,7 +1,5 @@
 <template>
   <div>
-    <a target="_blank" href="https://github.com/linjc/smooth-signature">源代码库主页</a> <br />
-    将原有代码的逻辑与canvas进行解耦, 满足多层画布重新绘制的需求 <br />
     <div class="colors">
       <span
         class="color-item"
@@ -11,6 +9,8 @@
         v-for="c in colors"
         :key="c"
       />
+      <button @click="() => imagePreview([$refs.canvas.toDataURL('image/png')])">生成图片</button>
+      <button @click="drawJavascript">回放测试数据</button>
     </div>
     <canvas ref="canvas"></canvas>
     <canvas ref="redrawCanvas"></canvas>
@@ -20,7 +20,6 @@
 <script>
 import SmoothLine from '@iamgx/smooth-line'
 import useMouse from '@iamgx/use-mouse'
-
 const eventFormat = e => {
   const isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
   return isMobile
@@ -40,9 +39,34 @@ const eventFormat = e => {
 
 export default {
   data: () => ({
-    color: '#000',
+    color: '#e93423',
     colors: ['#000', '#e93423', '#fffd56', '#6ffa4c', '#0024f5', '#e6db74', 'purple']
   }),
+  methods: {
+    drawJavascript() {
+      const points = window.getMockPoints()
+      let index = 0
+      const [start, ...rest] = points
+      this.smoothLineReDrawInstance.onSmoothLineInit(start)
+      this.smoothLineInstance.onSmoothLineInit(start)
+      const timer = setInterval(() => {
+        if (index < rest.length) {
+          ++index
+          rest[index] &&
+            this.smoothLineReDrawInstance.onSmoothLineDrawing({
+              ...rest[index],
+              color: this.color
+            })
+          rest[index] && this.smoothLineInstance.onSmoothLineDrawing(rest[index])
+        } else {
+          clearInterval(timer)
+          this.smoothLineReDrawInstance.points = []
+          this.smoothLineInstance.points = []
+          return
+        }
+      }, 30)
+    }
+  },
   mounted() {
     const width = document.querySelector('#app').getBoundingClientRect().width
     this.$refs.canvas.width = width - 50
@@ -50,35 +74,35 @@ export default {
     this.$refs.redrawCanvas.width = width - 50
     this.$refs.redrawCanvas.height = width / 2
 
-    const smoothLineInstance = new SmoothLine({
+    this.smoothLineInstance = new SmoothLine({
       canvas: this.$refs.canvas,
       color: '#000'
     })
-    const smoothLineReDrawInstance = new SmoothLine({
+    this.smoothLineReDrawInstance = new SmoothLine({
       canvas: this.$refs.redrawCanvas,
       color: '#000'
     })
     this.$watch('color', color => {
-      smoothLineInstance.color = color
-      smoothLineReDrawInstance.color = color
+      this.smoothLineInstance.color = color
+      this.smoothLineReDrawInstance.color = color
     })
 
     useMouse({
       el: this.$refs.canvas,
       onStart: e => {
         const event = eventFormat(e)
-        smoothLineInstance.onSmoothLineInit({ ...event, t: Date.now() })
-        smoothLineReDrawInstance.onSmoothLineInit({ ...event, t: Date.now() })
+        this.smoothLineInstance.onSmoothLineInit({ ...event, t: Date.now() })
+        this.smoothLineReDrawInstance.onSmoothLineInit({ ...event, t: Date.now() })
       },
       onMove: e => {
         const event = eventFormat(e)
         event.t = Date.now()
-        smoothLineInstance.onSmoothLineDrawing(event)
-        smoothLineReDrawInstance.onSmoothLineDrawing(event)
+        this.smoothLineInstance.onSmoothLineDrawing(event)
+        this.smoothLineReDrawInstance.onSmoothLineDrawing(event)
       },
       onEnd: () => {
-        smoothLineInstance.points = []
-        smoothLineReDrawInstance.points = []
+        this.smoothLineInstance.points = []
+        this.smoothLineReDrawInstance.points = []
       }
     })
   }
@@ -92,7 +116,7 @@ canvas {
   background-color: #fff;
 }
 .colors {
-  max-width: 300px;
+  max-width: 500px;
   height: 50px;
   display: flex;
   justify-content: space-around;
